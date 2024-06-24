@@ -1,0 +1,297 @@
+<head>
+    <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+        hr {
+  border: 1px solid black;
+  margin-bottom: 25px;
+}
+
+.font-time {
+  font-family: "Times new roman";
+  font-weight: bold;
+}
+
+body{
+    background: #6a62d2;
+}
+
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></head>
+
+<body>
+    <main class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+          <section class="col-md-8 my-5 offset-md-2">
+            <h3 class="font-time text-primary text-center mb-3">Welcome , {{.INTVName}}
+              Kindly provide feedback of Interview</h3>
+            <h4 class="font-time text-center">Please take few moments to submit the interview feedback</h4>
+            <button class="btn btn-success"><a href="/ListCands" target="_blank" style="text-decoration: none;color:white;">List of Candidates Interviewed</a></button>
+            <hr class="text-dark">
+     
+            <form id="form-subm" action="/submitResult" method="post">
+
+                <div class="form-group">
+                    <label class="font-weight-bold">Candidate Name and Date (separated by '-')</label>
+                    <textarea id="candName" cols="30" rows="3" class="form-control"></textarea>
+                  </div>
+     
+              <div class="form-group">
+                <label class="font-weight-bold">What is the behavioural approach of the candidate?</label>
+                <br />
+                <input type="radio" name="attendBefore" value="yes">
+                <label>Good</label> <br />
+                <input type="radio" name="attendBefore" value="no">
+                <label>Not Good</label>
+              </div>
+     
+              <div class="form-group">
+                <label class="font-weight-bold">How likely you feel the communication of the candidate is?</label>
+                <br />
+                <input type="radio" name="likelyAttend" value="1">
+                <label class="mr-5">1</label>
+                <input type="radio" name="likelyAttend" value="2">
+                <label class="mr-5">2</label>
+                <input type="radio" name="likelyAttend" value="3">
+                <label class="mr-5">3</label>
+                <input type="radio" name="likelyAttend" value="4">
+                <label class="mr-5">4</label>
+                <input type="radio" name="likelyAttend" value="5">
+                <label class="mr-5">5</label>
+              </div>
+     
+              <div class="form-group">
+                <label class="font-weight-bold">How likely you feel the relevant experience of the candidate?</label>
+                <br />
+                <input type="radio" name="likelyRecommendFriend" value="1">
+                <label class="mr-5">1</label>
+                <input type="radio" name="likelyRecommendFriend" value="2">
+                <label class="mr-5">2</label>
+                <input type="radio" name="likelyRecommendFriend" value="3">
+                <label class="mr-5">3</label>
+                <input type="radio" name="likelyRecommendFriend" value="4">
+                <label class="mr-5">4</label>
+                <input type="radio" name="likelyRecommendFriend" value="5">
+                <label class="mr-5">5</label>
+              </div>
+     
+              <div class="form-group">
+                <label class="font-weight-bold">What did you feel about the candidate's relevent knowledge?</label>
+                <textarea name="likeMost" cols="30" rows="3" class="form-control"></textarea>
+              </div>
+     
+              <div class="form-group">
+                <label class="font-weight-bold">What did you feel sbout the candidate's coding efficiency?</label>
+                <textarea name="likeLeast" cols="30" rows="3" class="form-control"></textarea>
+              </div>
+     
+              <label class="font-weight-bold">Overall Satisfaction</label>
+     
+              <table class="table table-bordered">
+                <thead class="text-center">
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Very Unsatisfied</th>
+                    <th>Unsatisfied</th>
+                    <th>Neutral</th>
+                    <th>Satisfied</th>
+                    <th>Very Satisfied</th>
+                  </tr>
+                </thead>
+     
+                <tbody class="text-center">
+                  <tr>
+                    <td>Coding ability</td>
+                    <td><input type="radio" name="overall" value="1"></td>
+                    <td><input type="radio" name="overall" value="2"></td>
+                    <td><input type="radio" name="overall" value="3"></td>
+                    <td><input type="radio" name="overall" value="4"></td>
+                    <td><input type="radio" name="overall" value="5"></td>
+                  </tr>
+     
+                  <tr>
+                    <td>Understanding and Knowledge</td>
+                    <td><input type="radio" name="location" value="1"></td>
+                    <td><input type="radio" name="location" value="2"></td>
+                    <td><input type="radio" name="location" value="3"></td>
+                    <td><input type="radio" name="location" value="4"></td>
+                    <td><input type="radio" name="location" value="5"></td>
+                  </tr>
+     
+                  <tr>
+                    <td>Problem solving approach</td>
+                    <td><input type="radio" name="events" value="1"></td>
+                    <td><input type="radio" name="events" value="2"></td>
+                    <td><input type="radio" name="events" value="3"></td>
+                    <td><input type="radio" name="events" value="4"></td>
+                    <td><input type="radio" name="events" value="5"></td>
+                  </tr>
+     
+                  <tr>
+                    <td>Thinking process</td>
+                    <td><input type="radio" name="coordinators" value="1"></td>
+                    <td><input type="radio" name="coordinators" value="2"></td>
+                    <td><input type="radio" name="coordinators" value="3"></td>
+                    <td><input type="radio" name="coordinators" value="4"></td>
+                    <td><input type="radio" name="coordinators" value="5"></td>
+                  </tr>
+
+                  <tr>
+                    <td>Data structure and Algorithm Understanding</td>
+                    <td><input type="radio" name="coordinators1" value="1"></td>
+                    <td><input type="radio" name="coordinators1" value="2"></td>
+                    <td><input type="radio" name="coordinators1" value="3"></td>
+                    <td><input type="radio" name="coordinators1" value="4"></td>
+                    <td><input type="radio" name="coordinators1" value="5"></td>
+                  </tr>
+
+                  <tr>
+                    <td>Low level Design Understanding</td>
+                    <td><input type="radio" name="coordinators2" value="1"></td>
+                    <td><input type="radio" name="coordinators2" value="2"></td>
+                    <td><input type="radio" name="coordinators2" value="3"></td>
+                    <td><input type="radio" name="coordinators2" value="4"></td>
+                    <td><input type="radio" name="coordinators2" value="5"></td>
+                  </tr>
+
+                  <tr>
+                    <td>High level Design Understanding</td>
+                    <td><input type="radio" name="coordinators3" value="1"></td>
+                    <td><input type="radio" name="coordinators3" value="2"></td>
+                    <td><input type="radio" name="coordinators3" value="3"></td>
+                    <td><input type="radio" name="coordinators3" value="4"></td>
+                    <td><input type="radio" name="coordinators3" value="5"></td>
+                  </tr>
+     
+                  <tr>
+                    <td>Ability of Learning new Techstack</td>
+                    <td><input type="radio" name="eventsPrice" value="1"></td>
+                    <td><input type="radio" name="eventsPrice" value="2"></td>
+                    <td><input type="radio" name="eventsPrice" value="3"></td>
+                    <td><input type="radio" name="eventsPrice" value="4"></td>
+                    <td><input type="radio" name="eventsPrice" value="5"></td>
+                  </tr>
+     
+                </tbody>
+              </table>
+     
+              <div class="form-group">
+                <label class="font-weight-bold">Any overall feedback you want to provide?</label>
+                <textarea name="suggestion" cols="30" rows="3" class="form-control"></textarea>
+              </div>
+              <br/>
+     
+              <input type="submit" id="submit" name="submit" class="btn text-center btn-primary btn-block rounded-pill" value="Submit">
+            </form>
+            <pre class="font-weight-bold" id="result"></pre>
+          </section>
+        </div>
+      </main>
+      <script>
+        document.getElementById("form-subm").onsubmit=(event)=>{
+            event.preventDefault();
+            document.getElementById("submit").style.display="none";
+            const formData = new FormData(event.target);
+            console.log(JSON.stringify(formData));
+            
+           let score1=0.00;
+           const codings=document.getElementsByName("overall");
+           for(var i=0;i<codings.length;i++) {
+            if(codings[i].checked) score1=parseInt(codings[i].value);
+           }
+           let score2=0.00;
+           const a=document.getElementsByName("location");
+           for(var i=0;i<a.length;i++) {
+            if(a[i].checked) score2=parseInt(a[i].value);
+           }
+           let score3=0.00;
+           const b=document.getElementsByName("events");
+           for(var i=0;i<b.length;i++) {
+            if(b[i].checked) score3=parseInt(b[i].value);
+           }
+           let score4=0.00;
+           const c=document.getElementsByName("coordinators");
+           for(var i=0;i<c.length;i++) {
+            if(c[i].checked) score4=parseInt(c[i].value);
+           }
+           let score5=0.00;
+           const d=document.getElementsByName("coordinators1");
+           for(var i=0;i<d.length;i++) {
+            if(d[i].checked) score5=parseInt(d[i].value);
+           }
+           let score6=0.00;
+           const e=document.getElementsByName("coordinators2");
+           for(var i=0;i<e.length;i++) {
+            if(e[i].checked) score6=parseInt(e[i].value);
+           }
+           let score7=0.00;
+           const f=document.getElementsByName("coordinators3");
+           for(var i=0;i<f.length;i++) {
+            if(f[i].checked) score7=parseInt(f[i].value);
+           }
+           let score8=0.00;
+           const g=document.getElementsByName("eventsPrice");
+           for(var i=0;i<g.length;i++) {
+            if(g[i].checked) score8=parseInt(g[i].value);
+           }
+           
+
+           const resScore=(score1+score2+score3+score4+score5+score6+score7+score8)/40;
+           console.log(score1,score2,score3,score4,score5,score6,score7,score8,resScore);
+           if(resScore*100>=90.00)  {
+            document.getElementById("result").classList.add("bg-success");
+            document.getElementById("result").style.color="white";
+            document.getElementById("result").innerHTML="Proceed with the next process";
+            console.log(JSON.stringify({
+                    name: document.getElementById("candName").value,
+                    result: "Not Selected"
+                }));
+            (async()=>{
+                await fetch('/submitResult',{
+                    headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("candName").value,
+                    result: "Selected"
+                }),
+                method: 'POST'
+            }).then(resp=>resp.json).then(data=>console.log(JSON.stringify(formData))).catch(err=>console.error(err));
+        })();
+           } else {
+            document.getElementById("result").classList.add("bg-danger");
+            document.getElementById("result").style.color="white";
+            document.getElementById("result").innerHTML="Can not proceed with the next process";
+            console.log(JSON.stringify({
+                    name: document.getElementById("candName").value,
+                    result: "Not Selected"
+                }));
+            (async()=>{
+                await fetch('/submitResult',{
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("candName").value,
+                    result: "Not Selected"
+                }),
+                method: 'POST'
+            }).then(resp=>resp.json).then(data=>console.log(JSON.stringify(formData))).catch(err=>console.error(err));
+        })();
+           }
+
+           
+
+        }
+      </script>
+</body>
