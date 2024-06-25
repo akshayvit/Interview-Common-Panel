@@ -38,7 +38,7 @@ type User struct {
 }
 
 var client = redis.NewClient(&redis.Options{
-	Addr: "localhost:6379",
+	Addr: "red-cpt4b96ehbks73etudn0:6379",
 })
 
 func main() {
