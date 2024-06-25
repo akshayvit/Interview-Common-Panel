@@ -38,8 +38,12 @@ type User struct {
 }
 
 var client = redis.NewClient(&redis.Options{
-	Addr: "red-cpt4b96ehbks73etudn0:6379",
+	Addr: "oregon-redis.render.com:6379",
+	Username: "red-cpt4b96ehbks73etudn0",
+	Password: "7Uh3tvz9O7yc4uhpHoGZpQfncDjn6Rjm" ,
+
 })
+
 
 func main() {
 	tmplSignUp := template.Must(template.ParseFiles("templates/signup.html"))
@@ -116,6 +120,8 @@ func main() {
 			http.SetCookie(w, &http.Cookie{
 				Name:  "uname",
 				Value: uname,
+				MaxAge: 1800,
+				Secure: true,
 			})
 			//time.Sleep(time.Second*10)
 
