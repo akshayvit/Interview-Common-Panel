@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -40,7 +41,8 @@ type User struct {
 var client = redis.NewClient(&redis.Options{
 	Addr: "oregon-redis.render.com:6379",
 	Username: "red-cpt4b96ehbks73etudn0",
-	Password: "7Uh3tvz9O7yc4uhpHoGZpQfncDjn6Rjm" ,
+	Password: "7Uh3tvz9O7yc4uhpHoGZpQfncDjn6Rjm",
+	TLSConfig: &tls.Config{InsecureSkipVerify: true},
 
 })
 
