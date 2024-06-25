@@ -38,7 +38,7 @@ type User struct {
 }
 
 var client = redis.NewClient(&redis.Options{
-	Addr: "localhost:6379",
+	Addr: "redis://red-cpt4b96ehbks73etudn0:6379",
 })
 
 func main() {
@@ -116,6 +116,8 @@ func main() {
 			http.SetCookie(w, &http.Cookie{
 				Name:  "uname",
 				Value: uname,
+				MaxAge: 1800,
+				Secure: true,
 			})
 			//time.Sleep(time.Second*10)
 
